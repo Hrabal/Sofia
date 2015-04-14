@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -18,13 +19,15 @@ class VerbalMemory(object):
 	def __init__(self):
 		self.root = VerbalMemoryNode(None)
 
-	def add_word(self, s):
+	def add(self, s):
 		current = self.root
 		for c in s:
+			print c
 			if c in current.children:
 				current = current.children[c]
 			else:
 				new_node = VerbalMemoryNode(c)
+				print new_node.value
 				current.children[c] = new_node
 				current = new_node
 		if None not in current.children:
